@@ -1,8 +1,9 @@
 # easy-envar
 
-[![Github](https://github.com/foolkat/rust-easy-envar/workflows/CI/badge.svg)](https://github.com/foolkat/rust-easy-envar/actions)
-[![Crates.io](https://img.shields.io/crates/v/easy_envar.svg)](https://crates.io/crates/easy_envar)
-[![Docs.rs](https://docs.rs/easy_envar/badge.svg)](https://docs.rs/easy_envar)
+[![Github](https://img.shields.io/badge/github-foolkat/easy_envar-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/foolkat/rust-easy-envar)
+[![Crates.io](https://img.shields.io/crates/v/easy-envar.svg?style=for-the-badge&color=fc8d62&logo=rust)](https://crates.io/crates/easy_envar)
+[![Docs.rs](https://img.shields.io/badge/docs.rs-easy_envar-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs)](https://docs.rs/easy_envar)
+[![Build](https://img.shields.io/github/actions/workflow/status/foolkat/rust-easy-envar/ci.yml?branch=main&style=for-the-badge)](https://github.com/foolkat/rust-easy-envar/actions?query=branch%3Amain)
 
 Easily retrieve, parse, and export environment variables directly within your build script (`build.rs`).
 By loading from an `.env` file and exporting each variable through Cargo, you can reliably access the same values at compile time in your application code.
