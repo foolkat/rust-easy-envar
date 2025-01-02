@@ -11,7 +11,7 @@ Add **`easy_envar`** as a **build dependency** in your `Cargo.toml`:
 
 ```toml
 [build-dependencies]
-easy_envar = "0.1"
+easy_envar = "1.1.0"
 ```
 
 ---
@@ -42,7 +42,7 @@ fn main() {
         match env_var.load() {
             Ok(env_var) => env_var.export(),
             Err(e) => {
-                eprintln!("env var {} not found: {}", env_var, e);
+                eprintln!("Failed to load an environment variable: {}", e);
                 std::process::exit(1);
             }
         }
