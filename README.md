@@ -1,18 +1,11 @@
-# rust-easy-envar
+# easy-envar
+
+[![Github](https://github.com/foolkat/rust-easy-envar/workflows/CI/badge.svg)](https://github.com/foolkat/rust-easy-envar/actions)
+[![Crates.io](https://img.shields.io/crates/v/easy_envar.svg)](https://crates.io/crates/easy_envar)
+[![Docs.rs](https://docs.rs/easy_envar/badge.svg)](https://docs.rs/easy_envar)
 
 Easily retrieve, parse, and export environment variables directly within your build script (`build.rs`).
 By loading from an `.env` file and exporting each variable through Cargo, you can reliably access the same values at compile time in your application code.
-
----
-
-## Installation
-
-Add **`easy_envar`** as a **build dependency** in your `Cargo.toml`:
-
-```toml
-[build-dependencies]
-easy_envar = "1.1.0"
-```
 
 ---
 
