@@ -1,0 +1,10 @@
+[package]
+name = "easy-envar"
+version = "0.1.0"
+edition = "2021"
+authors = ["Park Jisoo <cherryjeesoo@gmail.com>"]
+description = "Enables easy retrieval and export of environment variables in `build.rs`."
+license = "MIT"
+
+[dependencies]
+dotenvy = "0.15.7"
