@@ -13,6 +13,7 @@
 ///     let env_vars = [
 ///         Envar::String("HOST"),
 ///         Envar::U16("PORT"),
+///         Envar::U32("DATA"),
 ///         Envar::Bool("SECURE"),
 ///     ];
 /// }
@@ -54,6 +55,18 @@ pub enum Envar<'a> {
     /// let env_var = Envar::U16("VAR_NAME");
     /// ```
     U16(&'a str),
+
+    /// A u32 type environment variable.
+    /// 
+    /// ***
+    /// # Examples
+    /// 
+    /// ```rust
+    /// use easy_envar::Envar;
+    /// 
+    /// let env_var = Envar::U32("VAR_NAME");
+    /// ```
+    U32(&'a str),
 }
 
 
@@ -88,6 +101,12 @@ pub enum LoadedEnvar<'a> {
     /// The first field is the environment variable name.
     /// The second field is the `u16` value that was loaded.
     U16(&'a str, u16),
+
+    /// A loaded `u32` environment variable.
+    ///
+    /// The first field is the environment variable name.
+    /// The second field is the `u32` value that was loaded.
+    U32(&'a str, u32),
 }
 
 
@@ -120,7 +139,8 @@ impl<'a> Envar<'a> {
         let key = match self {
             Envar::String(key) |
             Envar::Bool(key) |
-            Envar::U16(key) => *key,
+            Envar::U16(key) |
+            Envar::U32(key) => *key,
         };
 
         let raw = std::env::var(key)?;
@@ -138,6 +158,10 @@ impl<'a> Envar<'a> {
                 let val = raw.parse::<u16>()?;
                 Ok(LoadedEnvar::U16(key, val))
             },
+            Envar::U32(_) => {
+                let val = raw.parse::<u32>()?;
+                Ok(LoadedEnvar::U32(key, val))
+            }
         }
     }
 }
@@ -183,6 +207,7 @@ impl<'a> LoadedEnvar<'a> {
             LoadedEnvar::String(key, val) => (*key, val.clone()),
             LoadedEnvar::Bool(key, val)   => (*key, val.to_string()),
             LoadedEnvar::U16(key, val)    => (*key, val.to_string()),
+            LoadedEnvar::U32(key, val) => (*key, val.to_string()),
         };
         println!("cargo:rustc-env={}={}", key, val);
     }
